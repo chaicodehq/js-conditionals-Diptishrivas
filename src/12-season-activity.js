@@ -3,7 +3,7 @@
  *
  * WanderLust is a travel planning app that suggests fun activities
  * based on the month and the current temperature. Users enter the
- * month number and temperature, and the app recommends what to do!
+ * month number and temperature, and the app recommends what to do! 
  *
  * Step 1 — Determine the season from the month:
  *   - December, January, February  (12, 1, 2)   → "Winter"
@@ -32,4 +32,32 @@
  */
 export function getSeasonActivity(month, temperature) {
   // Your code here
+  if(month < 1 || month > 12){
+    return null;
+  }
+  let season = "";
+  let activity = "";
+
+  if(month === 12|| month === 1 || month === 2){
+    season = "Winter";
+    activity = temperature < 0 ? "skiing" : "ice skating";
+
+  }
+  else if(month === 3 || month === 4 || month === 5){
+    season = "Spring";
+    activity = temperature > 20 ? "hiking" : "museum visit";
+
+}
+  else if(month === 6 || month === 7 || month === 8){
+    season ="Summer";
+    activity = temperature > 35 ? "swimming" : "cycling";
+    
+  
+  }
+  else if(month === 9 || month === 10 || month === 11){
+    season = "Autumn";
+    activity = temperature > 15 ? "nature walk" : "reading at a cafe"; 
+    
+  }
+  return {season, activity};
 }
